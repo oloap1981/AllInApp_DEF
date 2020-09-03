@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar hideBackButton>
+    <ion-buttons left slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons end>
+      <div class="icon-section">
+        <fa-icon [icon]="icon" [ngStyle]="{'color' : color }"></fa-icon>
+      </div>
+    </ion-buttons>
+    <ion-title>
+      <div class="text-default" [ngStyle]="{'color' : color }">CIRCOLARI</div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="card no-border card-large circolari">
+    <div [ngStyle]="{'background-color' : color }" [ngStyle]="{'background-color' : color }" class="card-header small text-white">{{com.cm_titolo}}
+      <ion-icon (click)="delete()" name="trash" class="trash"></ion-icon>
+    </div>
+    <div class="card-body">
+
+      <ul class="list-group list-group-flush comm">
+        <li style="padding: 10px;">
+          <img src="{{com.cm_immagine}}">
+          <p><small><i>{{com.cm_data}}</i></small></p>
+          <p>{{com.cm_descrizione}}</p>
+          <p><small>{{com.cm_allegato}}</small></p>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div style="position: relative;">
+    <ion-item>
+      <ion-label>Conferma lettura</ion-label>
+      <ion-checkbox [(ngModel)]="conferma"></ion-checkbox>
+    </ion-item>
+    <button style="position: absolute; top: 0; right: 20px;" *ngIf="conferma==true" ion-button (click)="read()">OK</button>
+  </div>
+</ion-content>
